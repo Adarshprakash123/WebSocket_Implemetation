@@ -18,9 +18,13 @@
      </div>
  
      <div id="messages"></div>
+     <!-- Loads Socket.io client library from the server.
+
+     Enables real-time bidirectional communication between client and server. -->
  
      <script src="/socket.io/socket.io.js"></script>
      <script>
+        // Initializes a WebSocket connection with the server using io()
        const socket = io();
  
        const messageInput = document.getElementById("message");
@@ -37,6 +41,7 @@
        sendBtn.addEventListener("click", (e) => {
          const message = messageInput.value;
          console.log(message);
+        //  Sends it to the server
          socket.emit("user-send-message", message);
        });
  
